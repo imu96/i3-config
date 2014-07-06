@@ -1,16 +1,14 @@
 set $mod Mod4
 
 font xft:Terminus 9.5
-new_window pixel 2
-focus_follows_mouse  yes
+new_window pixel 3
+focus_follows_mouse no 
 
 set $blue #005588
 set $gray1 #4F305E
 set $gray2 #333333
 
-set $browser firefox
-
-client.focused            $gray1   $gray1   #FFFFFF   #333333
+client.focused            $blue   $blue   #FFFFFF   #333333
 client.focused_inactive   $gray2   $gray2   #FFFFFF   #000000
 client.unfocused          $gray2   $gray2   #FFFFFF   #000000
 
@@ -18,48 +16,59 @@ client.unfocused          $gray2   $gray2   #FFFFFF   #000000
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
-bindsym XF86Explorer exec gnome-terminal
-bindsym $mod+Shift+Return exec urxvt
-bindsym Print exec scrot -q 100 -e 'mv $f ~/Pictures'
+bindsym $mod+Return exec urxvt
 
 # sound shortcuts
 bindsym XF86AudioPlay exec ~/.scripts/audiocontrols.sh play
 bindsym XF86AudioStop exec ~/.scripts/audiocontrols.sh stop 
 bindsym XF86AudioNext exec ~/.scripts/audiocontrols.sh next
 bindsym XF86AudioPrev exec ~/.scripts/audiocontrols.sh stop
-bindsym XF86Tools exec gnome-terminal -x sh -c "cmus"
-bindsym XF86AudioRaiseVolume exec amixer set Master 3+ unmute
-bindsym XF86AudioLowerVolume exec amixer set Master 3- unmute
-bindsym XF86AudioMute exec amixer set Master mute
+bindsym XF86AudioMute exec pamixer --toggle-mute
 
-# lock screen using cinnamon's screen lock
-bindsym XF86Calculator exec cinnamon-screensaver-command -l
+bindsym XF86Calculator exec galculator
+bindsym $mod+p exec pcmanfm
+bindsym $mod+o exec gvim
+bindsym $mod+i exec mcomix
+bindsym $mod+y exec abiword
+bindsym $mod+m exec transmission-gtk
+bindsym $mod+n exec xchat
+bindsym $mod+b exec gelemental
+bindsym $mod+Shift+i exec simple-scan
+bindsym $mod+Ctrl+x exec gvim .xinitrc
+bindsym $mod+u exec audacious
+bindsym $mod+t exec gummi
+bindsym $mod+Shift+b exec wxcam
+bindsym $mod+Ctrl+t exec scrot
+bindsym $mod+Shift+m exec tor-browser-en
 
-# start browser
-bindsym $mod+c exec $browser
-bindsym XF86HomePage exec $browser
+#start things to do with i3wm and computer in general
+bindsym $mod+Shift+p exec i3lock
+bindsym $mod+Shift+o exec gvim .i3/config
+
+
+
+
+#commands to do with the volume for pulseaudio
+bindsym XF86AudioRaiseVolume exec pamixer --increase 5
+bindsym XF86AudioLowerVolume exec pamixer --decrease 5
 
 # kill focused window
 bindsym $mod+Shift+Q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -nb black -nf white
-
-# screen lock
-bindsym Control+$mod+l exec slimlock
+bindsym $mod+d exec firefox 
 
 # change focus
-bindsym $mod+j focus left
+bindsym $mod+semicolon focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+j focus right
 
 # move focused window
-bindsym $mod+Shift+J move left
+bindsym $mod+Shift+colon move left
 bindsym $mod+Shift+K move down
 bindsym $mod+Shift+L move up
-bindsym $mod+Shift+colon move right
+bindsym $mod+Shift+J move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -68,17 +77,16 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+v split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+h split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
 
 # change container layout (tabbed, toggle split)
-bindsym $mod+n layout tabbed
-bindsym $mod+m layout toggle split
+bindsym $mod+w layout tabbed
 
 # toggle tiling / floating
 bindsym $mod+Shift+f floating toggle
@@ -87,28 +95,29 @@ bindsym $mod+Shift+f floating toggle
 
 # switch to workspace
 bindsym $mod+1 workspace 1: Home
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
+bindsym $mod+2 workspace 2: Files
+bindsym $mod+3 workspace 3: Ent
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8: SSH
-bindsym $mod+9 workspace 9: Music+etc
+bindsym $mod+7 workspace 7: Dev
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9: Music+Dae
 bindsym $mod+0 workspace 10: IRC+Chat
+bindsym $mod+Shift+quotedbl workspace 11
 
 # move focused container to workspace
 bindsym $mod+Shift+exclam move container to workspace 1: Home
-bindsym $mod+Shift+quotedbl move container to workspace 2
-bindsym $mod+Shift+sterling move container to workspace 3
+bindsym $mod+Shift+2 move container to workspace 2: Files
+bindsym $mod+Shift+3 move container to workspace 3: Ent
 bindsym $mod+Shift+dollar move container to workspace 4
 bindsym $mod+Shift+percent move container to workspace 5
 bindsym $mod+Shift+asciicircum move container to workspace 6
-bindsym $mod+Shift+ampersand move container to workspace 7
-bindsym $mod+Shift+asterisk move container to workspace 8: SSH
-bindsym $mod+Shift+parenleft move container to workspace 9: Music+etc
-bindsym $mod+Shift+parenright move container to workspace 10: IRC+Chat
-bindsym $mod+Shift+underscore move container to workspace 11: Daemons
+bindsym $mod+Shift+ampersand move container to workspace 7: Dev
+bindsym $mod+Shift+asterisk move container to workspace 8
+bindsym $mod+Shift+parenleft move container to workspace 9: Music+Dae
+bindsym $mod+Shift+0 move container to workspace 10: IRC+Chat
+bindsym $mod+Shift+underscore move container to workspace 11
 
 # reload the configuration file
 bindsym $mod+Shift+C reload
@@ -153,11 +162,6 @@ bar {
                 inactive_workspace #484848 #484848 #AAAAAA
         }
 }
-
-exec /usr/lib/gnome-settings-daemon/gnome-settings-daemon
-exec --no-startup-id /bin/sh ~/.fehbg
-exec gnome-keyring-daemon
-exec dropbox start
-
 for_window [title="synapse"] border none
-for_window [class="Audacious"] floating enable
+exec clipit
+exec synapse
