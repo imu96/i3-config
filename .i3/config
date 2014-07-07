@@ -16,17 +16,9 @@ client.unfocused          $gray2   $gray2   #FFFFFF   #000000
 floating_modifier $mod
 
 exec_always --no-startup-id launchy
-exec_always --no-startup-id nm-applet
 
 # start a terminal
 bindsym $mod+Return exec urxvt
-
-# sound shortcuts
-bindsym XF86AudioPlay exec ~/.scripts/audiocontrols.sh play
-bindsym XF86AudioStop exec ~/.scripts/audiocontrols.sh stop 
-bindsym XF86AudioNext exec ~/.scripts/audiocontrols.sh next
-bindsym XF86AudioPrev exec ~/.scripts/audiocontrols.sh stop
-bindsym XF86AudioMute exec pamixer --toggle-mute
 
 bindsym XF86Calculator exec galculator
 bindsym $mod+p exec pcmanfm
@@ -43,23 +35,19 @@ bindsym $mod+t exec gummi
 bindsym $mod+Shift+b exec wxcam
 bindsym $mod+Ctrl+t exec scrot
 bindsym $mod+Shift+m exec tor-browser-en
+bindsym $mod+d exec firefox 
 
 #start things to do with i3wm and computer in general
 bindsym $mod+Shift+p exec i3lock
 bindsym $mod+Shift+o exec gvim .i3/config
 
-
-
-
 #commands to do with the volume for pulseaudio
 bindsym XF86AudioRaiseVolume exec pamixer --increase 5
 bindsym XF86AudioLowerVolume exec pamixer --decrease 5
+bindsym XF86AudioMute exec pamixer --toggle-mute
 
 # kill focused window
 bindsym $mod+Shift+Q kill
-
-# start dmenu (a program launcher)
-bindsym $mod+d exec firefox 
 
 # change focus
 bindsym $mod+semicolon focus left
