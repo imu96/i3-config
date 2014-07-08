@@ -17,6 +17,7 @@ floating_modifier $mod
 
 exec_always --no-startup-id launchy
 exec --no-startup-id ~/.scripts/touchpadOff.sh
+exec_always --no-startup-id nm-applet
 
 # start a terminal
 bindsym $mod+Return exec urxvt
@@ -37,6 +38,7 @@ bindsym $mod+Shift+b exec wxcam
 bindsym $mod+Ctrl+t exec scrot
 bindsym $mod+Shift+m exec tor-browser-en
 bindsym $mod+d exec firefox 
+bindsym $mod+Ctrl+b exec synapse
 
 #start things to do with i3wm and computer in general
 bindsym $mod+Shift+p exec i3lock
