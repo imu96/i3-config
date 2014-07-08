@@ -6,17 +6,13 @@ i3-config
 
 These configuration files are for the popular X11 tilling window manager, i3. 
 
-[This](http://www.reddit.com/r/unixporn/comments/1cvsgv/archi3_finally_done_setting_up_my_conky_i3status/) is how this configuration *used* to look. See above for the most up-to-date screenshot (check commits to confirm).
-
-
 Files
 -----
 
 * .i3/config - the main i3 config file containing key bindings and colours for windows.
 * .i3/conkyrc - the conky config for i3status.
-* .scripts/cmusconk.sh - used to display current cmus track in i3status.
-* .scripts/audiocontrols.sh - used so media keys work on cmus and audacious, depending on which is currently running. Not necessarily needed for all setups.
-* .i3/conkyrc - some meta stuff.
+* .scripts/touchpadOff.sh- so that I don't have to keep turning off my annoying touchpad on startup. Not necessarily needed for all setups.
+* .i3/conky - some meta stuff.
 
 Installation
 ------------
@@ -32,7 +28,7 @@ I've used GTK themes and installed GNOME so I have full support for them and for
 Credits
 -------
 
-This repo was forked from [here](https://github.com/ivyl/i3-config).
+This repo was forked from [here](https://github.com/NorthAntrim/i3-config) who apparently forked it from [here](https://github.com/ivyl/i3-config).
 
 Other
 -----
