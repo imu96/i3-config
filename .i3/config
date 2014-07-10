@@ -15,8 +15,6 @@ client.unfocused          $gray2   $gray2   #FFFFFF   #000000
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-exec_always --no-startup-id launchy
-exec --no-startup-id ~/.scripts/touchpadOff.sh
 exec_always --no-startup-id nm-applet
 
 # start a terminal
